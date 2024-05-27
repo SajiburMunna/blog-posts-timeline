@@ -1,7 +1,14 @@
-function PageLayout() {
+import { PropsWithChildren } from "react";
+
+import Logo from "../assets/logo";
+
+function PageLayout({ children }: PropsWithChildren<unknown>) {
   return (
     <div>
-      <header></header>
+      <header className="py-[26px]">
+        <Logo />
+      </header>
+      <main>{children}</main>
     </div>
   );
 }
