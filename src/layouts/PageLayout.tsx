@@ -4,7 +4,7 @@ import Logo from "../assets/logo";
 
 function PageLayout({ children }: PropsWithChildren<unknown>) {
   return (
-    <div>
+    <div className="px-[120px]">
       <header className="py-[26px]">
         <Logo />
       </header>

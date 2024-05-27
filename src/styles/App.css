@@ -3,7 +3,13 @@
 @tailwind utilities;
 
 #root {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   text-align: center;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
 }
