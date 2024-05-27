@@ -1,0 +1,3 @@
+type API = {
+  name: string;
+};
