@@ -1,3 +1,4 @@
+import BlogPostContainer from "./components/blogPostContainer";
 import Post from "./components/post";
 import TimelineContainer from "./components/timelineContainer";
 import TimelineHeader from "./components/timelineHeader";
@@ -14,15 +15,27 @@ function TimeLine() {
           Distinctio?
         </TimelineHeader.Description>
       </TimelineHeader>
-      <Post>
-        <Post.UserName userName="John Doe" />
-        <Post.Title>Post Title</Post.Title>
-        <Post.Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          voluptate, quae, quos, quas quia repellendus dolorum doloribus
-          voluptatum doloremque quidem nesciunt.
-        </Post.Description>
-      </Post>
+
+      <BlogPostContainer title="Blog Post" className="mt-[96px]">
+        <Post>
+          <Post.UserName userName="John Doe" />
+          <Post.Title title="Post Title" />
+          <Post.Description
+            description="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptate, quae, quos, quas quia repellendus dolorum doloribus
+            voluptatum doloremque quidem nesciunt."
+          />
+        </Post>
+        <Post>
+          <Post.UserName userName="John Doe" />
+          <Post.Title title="Post Title" />
+          <Post.Description
+            description=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptate, quae, quos, quas quia repellendus dolorum doloribus
+            voluptatum doloremque quidem nesciunt."
+          />
+        </Post>
+      </BlogPostContainer>
     </TimelineContainer>
   );
 }
