@@ -6,3 +6,31 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.btn {
+  @apply flex items-center justify-center rounded font-medium focus:outline-none whitespace-nowrap select-none transition-all duration-150 ease-out;
+}
+
+.btn-sm {
+  @apply h-8 px-5 text-xs;
+}
+
+.btn-md {
+  @apply h-10 px-7 text-sm;
+}
+
+.btn-lg {
+  @apply h-14 px-10 text-base;
+}
+
+.btn-primary {
+  @apply h-[2.5rem] rounded-[0.25rem] bg-green-600 text-white hover:bg-green-300 hover:text-white;
+}
+
+.btn-secondary {
+  @apply bg-slate-200 text-green-600;
+}
+
+.btn-outlined {
+  @apply bg-none text-white border h-[2.5rem] border-[#466E87]  hover:bg-[#18262E] hover:text-white transition-all duration-150 ease-out rounded-full;
+}
