@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import clsx from "clsx";
 
-import Card from "../../../components/card";
+import Card from "../../../components/Card";
 import UserAvatar from "../../../assets/user-avatar";
 
 function Post({

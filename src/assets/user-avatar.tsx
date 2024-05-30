@@ -1,6 +1,6 @@
 function UserAvatar() {
   return (
-    <div>
+    <>
       <svg
         width="40"
         height="40"
@@ -21,7 +21,7 @@ function UserAvatar() {
           <image id="image0_2_7" width="300" height="300" />
         </defs>
       </svg>
-    </div>
+    </>
   );
 }
 

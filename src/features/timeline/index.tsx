@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
-import BlogPostContainer from "./components/blogPostContainer";
-import Post from "./components/post";
-import PostLayout from "./components/postLayout";
-import TimelineContainer from "./components/timelineContainer";
-import TimelineHeader from "./components/timelineHeader";
+import BlogPostContainer from "./components/BlogPostContainer";
+import Post from "./components/Post";
+import PostLayout from "./components/PostLayout";
+import TimelineContainer from "./components/TimelineContainer";
+import TimelineHeader from "./components/TimelineHeader";
 import { getUsers } from "../../services/users";
 import { getPosts } from "../../services/posts";
-import PostSkeleton from "./components/postSkeleton";
+import PostSkeleton from "./components/PostSkeleton";
 
 function TimeLine() {
   const [visiblePosts, setVisiblePosts] = useState<number>(10);

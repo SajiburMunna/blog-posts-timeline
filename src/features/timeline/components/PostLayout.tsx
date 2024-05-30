@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-import { Button } from "../../../components/button";
+import { Button } from "../../../components/Button";
 
 function PostLayout({
   children,
