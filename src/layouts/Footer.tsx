@@ -13,12 +13,12 @@ const SocialLinkData = [
   },
   {
     id: 2,
-    href: "http://github.com/sajiburmunna",
+    href: "https://www.facebook.com/profile.php?id=100006695027759",
     icon: Facebook,
   },
   {
     id: 3,
-    href: "http://github.com/sajiburmunna",
+    href: "https://x.com/SajiburM",
     icon: Twitter,
   },
 ];
@@ -27,7 +27,7 @@ function Footer() {
   return (
     <footer className="py-[26px] bg-[#111B21] border-t-[1.5px] border-[#FFFFFF1A]">
       <div className="max-w-[1440px] m-auto px-[50px] md:px-[120px]">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between gap-3 items-center">
           <div className="flex items-center gap-2">
             <Logo />
             <p className="text-base leading-5">JSojibcript.BD</p>
