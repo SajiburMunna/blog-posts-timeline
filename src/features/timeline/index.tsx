@@ -7,6 +7,7 @@ import TimelineContainer from "./components/timelineContainer";
 import TimelineHeader from "./components/timelineHeader";
 import { getUsers } from "../../services/users";
 import { getPosts } from "../../services/posts";
+import PostSkeleton from "./components/postSkeleton";
  
  
  
@@ -22,9 +23,9 @@ function TimeLine() {
     queryFn: getPosts
   });
 
- if(isLoadingUsers || isLoadingPosts){
-   return <div>Loading...</div>
-  }
+//  if(isLoadingUsers || isLoadingPosts){
+//    return <div>Loading...</div>
+//   }
  
   const getUserById = (id: number) => {
     return  users.find((user: { id: number }) => user.id === id);
@@ -42,16 +43,19 @@ function TimeLine() {
       </TimelineHeader>
 
       <BlogPostContainer title="Internet of Things (IoT)" className="mt-[96px]">
-        <PostLayout>
-          {sortedPosts.map((post, index) => (
-            <div className="mb-4">
-              <Post key={index} className="break-inside-avoid">
-                <Post.UserName userName={getUserById(post.userId).username} />
-                <Post.Title title={post.title} />
-                <Post.Description description={post.body} />
-              </Post>
-            </div>
-          ))}
+        <PostLayout isHasPosts ={!isLoadingPosts && !isLoadingUsers}>
+          {
+            isLoadingPosts || isLoadingUsers ? <PostSkeleton></PostSkeleton> : sortedPosts.map((post, index) => (
+              <div className="mb-4">
+                <Post key={index} className="break-inside-avoid">
+                  <Post.UserName userName={getUserById(post.userId).username} />
+                  <Post.Title title={post.title} />
+                  <Post.Description description={post.body} />
+                </Post>
+              </div>
+            ))
+          }
+         
         </PostLayout>
       </BlogPostContainer>
     </TimelineContainer>

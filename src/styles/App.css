@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #root {
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
 }
 
@@ -34,3 +34,8 @@
 .btn-outlined {
   @apply bg-none text-white border h-[2.5rem] border-[#466E87]  hover:bg-[#18262E] hover:text-white transition-all duration-150 ease-out rounded-full;
 }
+
+.skeleton {
+  @apply rounded-lg bg-[#626763] shadow-sm animate-pulse;
+}
+
