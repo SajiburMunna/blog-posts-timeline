@@ -8,6 +8,7 @@ import TimelineHeader from "./components/timelineHeader";
 import { getUsers } from "../../services/users";
 import { getPosts } from "../../services/posts";
 import PostSkeleton from "./components/postSkeleton";
+import { useState } from "react";
  
  
  
@@ -32,7 +33,12 @@ function TimeLine() {
   }
 
   const sortedPosts = posts?.sort((a: { id: number }, b: { id: number }) => b.id - a.id) ?? [];
+  const [visibleItems, setVisibleItems] = useState(10);
 
+  // Function to load more items
+  const handleLoadMore = () => {
+    setVisibleItems(prevVisibleItems => Math.min(prevVisibleItems + 10, sortedPosts.length));
+  };
 
  
   return (
@@ -43,7 +49,7 @@ function TimeLine() {
       </TimelineHeader>
 
       <BlogPostContainer title="Internet of Things (IoT)" className="mt-[96px]">
-        <PostLayout isHasPosts ={!isLoadingPosts && !isLoadingUsers}>
+        <PostLayout isHasPosts ={!isLoadingPosts && !isLoadingUsers} onLoadMore ={handleLoadMore}>
           {
             isLoadingPosts || isLoadingUsers ? <PostSkeleton></PostSkeleton> : sortedPosts.map((post, index) => (
               <div className="mb-4">
