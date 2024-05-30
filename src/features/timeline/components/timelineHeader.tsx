@@ -1,27 +1,33 @@
 import { PropsWithChildren } from "react";
 
 function TimelineHeader({ children }: PropsWithChildren<unknown>) {
-  return <div className="space-y-6">{children}</div>;
+  return <div className="flex justify-center">
+     <div className="space-y-6 max-w-[636px]">{children}</div> 
+    </div>;
 }
 
 export default TimelineHeader;
 
 TimelineHeader.Title = function Title({
-  children,
-}: PropsWithChildren<unknown>) {
+  title
+}: {
+  title:string
+}) {
   return (
     <h1 className="font-semibold text-[40px] leading-[48px] text-center text-white">
-      {children}
+      {title}
     </h1>
   );
 };
 
 TimelineHeader.Description = function Description({
-  children,
-}: PropsWithChildren<unknown>) {
+  description
+}: {
+  description:string
+}) {
   return (
     <p className="font-normal text-center text-base leading-5 text-[#E6E6E6]">
-      {children}
+      {description}
     </p>
   );
 };

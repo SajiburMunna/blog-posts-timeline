@@ -1,57 +1,54 @@
+import { useQuery } from "@tanstack/react-query";
+
 import BlogPostContainer from "./components/blogPostContainer";
 import Post from "./components/post";
 import PostLayout from "./components/postLayout";
 import TimelineContainer from "./components/timelineContainer";
 import TimelineHeader from "./components/timelineHeader";
-
-const postsData = [
-  {
-    title: "Something like a post title",
-    description:
-      "It will be a post description and many this what you would like to show here, I don't know how much long this will be.",
-    author: "Isabel Maru",
-  },
-  {
-    title: "Something like a post title",
-    description:
-      "It will be a post description and many this what you would like to show here, I don't know how much long this will be.",
-    author: "Isabel Maru",
-  },
-  {
-    title: "Something like a post title",
-    description:
-      "It will be a post description and many this what you would like to show here, I don't know how much long this will be.",
-    author: "Isabel Maru",
-  },
-  {
-    title: "Something like a post title",
-    description:
-      "It will be a post description and many this what you would like to show here, I don't know how much long this will be.",
-    author: "Isabel Maru",
-  },
-];
-
+import { getUsers } from "../../services/users";
+import { getPosts } from "../../services/posts";
+ 
+ 
+ 
 function TimeLine() {
+
+ const {data:users, isLoading:isLoadingUsers}= useQuery({
+    queryKey: ['get-users'],
+    queryFn: getUsers
+  });
+
+  const {data:posts, isLoading:isLoadingPosts}= useQuery({
+    queryKey: ['get-posts'],
+    queryFn: getPosts
+  });
+
+ if(isLoadingUsers || isLoadingPosts){
+   return <div>Loading...</div>
+  }
+ 
+  const getUserById = (id: number) => {
+    return  users.find((user: { id: number }) => user.id === id);
+  }
+
+  const sortedPosts = posts?.sort((a: { id: number }, b: { id: number }) => b.id - a.id) ?? [];
+
+
+ 
   return (
     <TimelineContainer className="mt-[96px]">
       <TimelineHeader>
-        <TimelineHeader.Title>Timeline</TimelineHeader.Title>
-        <TimelineHeader.Description>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
-          iusto tempora deserunt ipsam optio itaque aut eaque aperiam tempore,
-          laborum non accusantium sed, odit at fugit eos quod excepturi?
-          Distinctio?
-        </TimelineHeader.Description>
+        <TimelineHeader.Title title="The Future of Technology"/> 
+        <TimelineHeader.Description description="The rapid advancements in technology have significantly impacted various industries. In this post, we will explore how technology is shaping the future and what trends to watch out for."/>
       </TimelineHeader>
 
-      <BlogPostContainer title="Blog Post" className="mt-[96px]">
+      <BlogPostContainer title="Internet of Things (IoT)" className="mt-[96px]">
         <PostLayout>
-          {postsData.map((post, index) => (
+          {sortedPosts.map((post, index) => (
             <div className="mb-4">
               <Post key={index} className="break-inside-avoid">
-                <Post.UserName userName={post.author} />
+                <Post.UserName userName={getUserById(post.userId).username} />
                 <Post.Title title={post.title} />
-                <Post.Description description={post.description} />
+                <Post.Description description={post.body} />
               </Post>
             </div>
           ))}
