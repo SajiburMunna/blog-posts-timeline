@@ -30,7 +30,7 @@ function Footer() {
         <div className="flex justify-between gap-3 items-center">
           <div className="flex items-center gap-2">
             <Logo />
-            <p className="text-base leading-5">JSojibcript.BD</p>
+            <p className="text-base font-semibold leading-5">JSojibcript.BD</p>
           </div>
           <div>
             <div className="flex gap-2">

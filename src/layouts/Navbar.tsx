@@ -30,7 +30,7 @@ function Navbar() {
         <a href="mailto:info.sojibhossen.me@gmail.com" target="_blank">
           <Button
             variant="outlined"
-            className="!rounded-full !border-[#25D366] hover:bg-[#25D366]"
+            className="!rounded-full !border-[#25D366] hover:bg-[#25D366] !font-semibold"
           >
             Let's Talk
           </Button>

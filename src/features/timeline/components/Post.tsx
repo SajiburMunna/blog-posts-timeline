@@ -2,7 +2,6 @@ import { PropsWithChildren } from "react";
 import clsx from "clsx";
 
 import Card from "../../../components/Card";
-import UserAvatar from "../../../assets/user-avatar";
 
 function Post({
   children,
@@ -23,7 +22,9 @@ export default Post;
 Post.UserName = function UserName({ userName }: { userName: string }) {
   return (
     <div className="flex items-center space-x-2 mb-4">
-      <UserAvatar />
+      <div className="flex justify-center items-center h-10 w-10 rounded-full bg-[#141F26]">
+        <p className="font-semibold">{userName?.split("")[0]}</p>
+      </div>
       <p className="text-[#E6E6E6] font-normal text-base leading-[19px]">
         {userName}
       </p>
