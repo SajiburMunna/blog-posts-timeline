@@ -45,7 +45,7 @@ This is a dummy blog post timeline page focusing on React best practices and str
    yarn install
 6. Start the development server:
    ```sh
-   yarn start
+   yarn dev
 Open your browser and visit `http://localhost:5173`.
 
 ### Additional Notes
