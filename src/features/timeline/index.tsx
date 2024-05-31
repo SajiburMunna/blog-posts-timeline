@@ -38,7 +38,7 @@ function TimeLine() {
   return (
     <TimelineContainer className="mt-[96px]">
       <TimelineHeader>
-        <TimelineHeader.Title>"The Future of Technology"</TimelineHeader.Title>
+        <TimelineHeader.Title>The Future of Technology</TimelineHeader.Title>
         <TimelineHeader.Description>
           The rapid advancements in technology have significantly impacted
           various industries. In this post, we will explore how technology is
