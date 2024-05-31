@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { PropsWithChildren } from "react";
 
 function TimelineHeader({ children }: PropsWithChildren<unknown>) {
@@ -10,22 +11,24 @@ function TimelineHeader({ children }: PropsWithChildren<unknown>) {
 
 export default TimelineHeader;
 
-TimelineHeader.Title = function Title({ title }: { title: string }) {
-  return (
-    <h1 className="font-semibold text-[40px] leading-[48px] text-center text-white">
-      {title}
-    </h1>
+TimelineHeader.Title = function Title({
+  children,
+  className,
+}: PropsWithChildren<{ className?: string }>) {
+  const classNames = clsx(
+    "font-semibold text-[40px] leading-[48px] text-center text-white",
+    className
   );
+  return <h1 className={classNames}>{children}</h1>;
 };
 
 TimelineHeader.Description = function Description({
-  description,
-}: {
-  description: string;
-}) {
-  return (
-    <p className="font-normal text-center text-base leading-5 text-[#E6E6E6]">
-      {description}
-    </p>
+  children,
+  className,
+}: PropsWithChildren<{ className?: string }>) {
+  const classNames = clsx(
+    "font-normal text-center text-base leading-5 text-[#E6E6E6]",
+    className
   );
+  return <p className={classNames}>{children}</p>;
 };
