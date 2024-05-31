@@ -1,4 +1,4 @@
- # Blog Post Timeline
+ # Blog Posts Timeline
 
 This is a dummy blog post timeline page focusing on React best practices and structure. The project is built with React, TypeScript, React Query, and Tailwind CSS.
 
