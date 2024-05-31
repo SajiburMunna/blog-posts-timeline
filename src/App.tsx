@@ -1,6 +1,6 @@
 import ReactQueryProvider from "./context/ReactQueryProvider";
 import TimeLine from "./features/timeline";
-import PageLayout from "./layouts/PageLayout";
+import PageLayout from "./components/layouts/PageLayout";
 
 import "./styles/global.css";
 

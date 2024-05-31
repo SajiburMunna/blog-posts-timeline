@@ -1,9 +1,9 @@
 import { PropsWithChildren } from "react";
 
-import Facebook from "../assets/facebook";
-import Github from "../assets/github";
-import Logo from "../assets/logo";
-import Twitter from "../assets/twitter";
+import Facebook from "../../assets/facebook";
+import Github from "../../assets/github";
+import Logo from "../../assets/logo";
+import Twitter from "../../assets/twitter";
 
 const SocialLinkData = [
   {

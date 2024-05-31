@@ -1,5 +1,5 @@
-import Logo from "../assets/logo";
-import { Button } from "../components/Button";
+import Logo from "../../assets/logo";
+import { Button } from "../Button";
 
 function Navbar() {
   return (
