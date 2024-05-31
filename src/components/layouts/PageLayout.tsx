@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 function PageLayout({ children }: PropsWithChildren<unknown>) {
   return (
     <div>
-      <div className="px-[50px] md:px-[120px] mb-[96px]">
+      <div className="px-5 md:px-[120px] mb-[96px]">
         <header className="py-[26px]">
           <Navbar />
         </header>
