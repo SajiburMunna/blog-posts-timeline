@@ -21,7 +21,7 @@ This is a dummy blog post timeline page focusing on React best practices and str
 2. **TypeScript for Type Safety**: Use TypeScript to ensure type safety across the application.
 3. **React Query for Data Fetching**: Manage server-state using React Query.
 4. **CSS in JS**: Utilize Tailwind CSS for styling, allowing for a utility-first approach.
-5. **Environment Variables**: Store configuration settings and secrets in environment variables.
+ 
 
 ## Environment Setup
 
