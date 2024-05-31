@@ -9,3 +9,11 @@ type Users = {
   id: number;
   username: string;
 };
+
+type Comments = {
+  id: number;
+  postId: number;
+  name: string;
+  email: string;
+  body: string;
+};

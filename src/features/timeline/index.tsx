@@ -10,9 +10,13 @@ import { getUsers } from "../../services/users";
 import { getPosts } from "../../services/posts";
 import PostSkeleton from "./components/PostSkeleton";
 import Avatar from "../../components/Avatar";
+import { getComments } from "../../services/comments";
+import Comment from "./components/Comment";
 
 function TimeLine() {
   const [visiblePosts, setVisiblePosts] = useState<number>(10);
+  const [singlePostComments, setSinglePostComments] = useState<Comments[]>([]);
+  const [seePostId, setSeePostId] = useState<number | null>(0);
 
   const { data: users, isLoading: isLoadingUsers } = useQuery({
     queryKey: ["get-users"],
@@ -24,6 +28,11 @@ function TimeLine() {
     queryFn: getPosts,
   });
 
+  const { data: comments, isLoading: isLoadingComments } = useQuery({
+    queryKey: ["get-comments"],
+    queryFn: getComments,
+  });
+
   const getUserById = (id: number) => {
     return users?.find((user: { id: number }) => user.id === id);
   };
@@ -33,6 +42,19 @@ function TimeLine() {
 
   const handleLoadMore = () => {
     setVisiblePosts((prev) => Math.min(prev + 10, sortedPosts.length));
+  };
+
+  const handleSeeComments = (postId: number) => {
+    if (seePostId === postId) {
+      setSeePostId(null);
+      setSinglePostComments([]);
+    } else {
+      setSeePostId(postId);
+      const filteredComments = comments?.filter(
+        (comment: { postId: number }) => comment.postId === postId
+      );
+      setSinglePostComments(filteredComments ?? []);
+    }
   };
 
   return (
@@ -53,13 +75,13 @@ function TimeLine() {
           {isLoadingPosts || isLoadingUsers ? (
             <PostSkeleton />
           ) : (
-            sortedPosts?.slice(0, visiblePosts).map((post, index) => {
+            sortedPosts?.slice(0, visiblePosts).map((post) => {
               const user = getUserById(post.userId);
               const userAvatarContent = user?.username?.split("")[0];
               if (!user) return null;
               return (
                 <div className="mb-4">
-                  <Post key={index} className="break-inside-avoid">
+                  <Post key={post.id} className="break-inside-avoid">
                     <Post.User>
                       <Avatar>{userAvatarContent}</Avatar>
                       <p className="text-[#E6E6E6] text-base leading-[19px]">
@@ -68,6 +90,25 @@ function TimeLine() {
                     </Post.User>
                     <Post.Title>{post.title}</Post.Title>
                     <Post.Description>{post.body}</Post.Description>
+                    {!isLoadingComments && (
+                      <Comment>
+                        <Comment.See
+                          onSeeComment={() => handleSeeComments(post.id)}
+                        >
+                          {post.id === seePostId
+                            ? "Hide Comments"
+                            : "See Comments"}
+                        </Comment.See>
+                        {post.id === seePostId &&
+                          singlePostComments?.map((comment, index) => {
+                            return (
+                              <Comment.Body key={comment.id}>
+                                {index + 1}. {comment.body}
+                              </Comment.Body>
+                            );
+                          })}
+                      </Comment>
+                    )}
                   </Post>
                 </div>
               );
