@@ -13,6 +13,7 @@ This is a dummy blog post timeline page focusing on React best practices and str
 - **React**: A JavaScript library for building user interfaces.
 - **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
 - **React Query**: A data-fetching library for React.
+- **Axios**: A promise-based HTTP client for the browser and Node.js.
 - **Tailwind CSS**: A utility-first CSS framework.
 
 ## Best Practices
@@ -20,7 +21,8 @@ This is a dummy blog post timeline page focusing on React best practices and str
 1. **Component-Based Architecture**: Break down the UI into reusable components.
 2. **TypeScript for Type Safety**: Use TypeScript to ensure type safety across the application.
 3. **React Query for Data Fetching**: Manage server-state using React Query.
-4. **CSS in JS**: Utilize Tailwind CSS for styling, allowing for a utility-first approach.
+4. **Axios for HTTP Requests**: Use Axios for making HTTP requests.
+5. **CSS in JS**: Utilize Tailwind CSS for styling, allowing for a utility-first approach.
  
 
 ## Environment Setup
